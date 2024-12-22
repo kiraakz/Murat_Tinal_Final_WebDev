@@ -1,0 +1,43 @@
+
+{% extends 'nav.html' %}
+
+{% block content %}
+{% load static %}
+<section id="about">
+    <div class="container">
+        <img src="Me.jpg" alt="About Us" style="width: 400px;height: 300px;">
+        <h1 style="color:chocolate">About app</h1>
+        <div class="section-content">
+            <p style="background: orange;">The goal of this project is to develop a robust e-learning platform using Django. The project will encompass fundamental Django concepts, including models, views, templates, and the Django Rest Framework (DRF), as well as Docker for containerization and deployment.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="courses">
+    <div class="container">
+        <h1 style="color: orange;">Courses</h1>
+        <div id="course-container" class="w-100">
+            <!-- Courses will be dynamically added here -->
+            <script src="{% static 'JS/script.js' %}"></script>
+        </div>
+    </div>
+</section>
+
+<section id="subscribe">
+    <div class="container">
+        <h1></h1>
+        <div class="section-content">
+            <ul style="list-style-type: none; padding-left: 0;">
+                <li><span style="font-size: 20px;"></span></li>
+                <li><span style="font-size: 20px;"></span></li>
+                <li><span style="font-size: 20px;"></span></li>
+                <li><span style="font-size: 20px;"></span></li>
+                <li><span style="font-size: 20px;"></span></li>
+                <li><span style="font-size: 20px;"></span></li>
+            </ul>
+            <p style="color: red;">Note that you can't request a course if you are not signed in.</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

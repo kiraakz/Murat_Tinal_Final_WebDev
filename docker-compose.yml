@@ -1,0 +1,36 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:14
+    environment:
+      POSTGRES_DB: e_learning
+      POSTGRES_USER: postgres_user
+      POSTGRES_PASSWORD: postgres_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - django_network
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+      - static_volume:/code/static
+      - media_volume:/code/media
+    ports:
+      - "8000:8000" 
+    depends_on:
+      - db
+    environment:
+      - DB_NAME=e_learning
+      - DB_USER=postgres_user
+      - DB_PASSWORD=postgres_password
+      - DB_HOST=db
+    networks:
+      - django_network
+volumes:
+  postgres_data:  
+  static_volume:
+  media_volume:
+networks:
+  Django_network:
